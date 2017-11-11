@@ -1,0 +1,63 @@
+#gamepagenormal{
+	display: none; 
+}
+
+.underline{
+	width: 20px;
+	margin-right: 10px;
+	float: left;
+}
+
+.wrongletter{
+	color: red;
+	float: left;
+}
+
+.letter{
+}
+
+.letter-button{
+	position:relative;
+	height: 50px;
+	width: 50px;
+	margin: 5px;
+	background-color: red;
+	color: white;
+	font-size: 25px;
+	border: solid 5px purple;
+}
+
+.letterstyle{
+	text-align: center;
+}
+
+h2{
+	width: 679px;
+}
+
+.flybox{
+	height: 604px;
+	width: 679px;
+}
+
+.buttoncirno{
+	height: 604px;
+	width: 679px;
+	background-image: url("images/cirno.gif");
+}
+
+div.a1 {
+width: 50px;
+height:50px;
+background-color:red;
+position:relative;
+float: left;
+}
+
+div.a {
+	width: 50px;
+	height:50px;
+	background-color:red;
+	position:relative;
+	float: left;
+}
