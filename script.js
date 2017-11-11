@@ -128,6 +128,7 @@ $(document).ready(function() {
         document.getElementById('button-container').style.display = "block";
         document.getElementById('animate').style.display = "block";
         document.getElementById('restart').style.display = "none";
+
       }
       
       if(lives == 0 && lunatic==1) {
@@ -136,7 +137,7 @@ $(document).ready(function() {
         document.getElementById('gameover').style.display = "block";
         document.getElementById('button-container').style.display = "block";
         document.getElementById('animate').style.display = "block";
-        document.getElementById('restart').style.display = "none";
+        document.getElementById('restart').src = "none";
       }
 
       if(selectedletter === "⑨" && lunatic==1){
@@ -198,6 +199,7 @@ $(document).ready(function() {
     var audioElement = document.getElementById("songplayer");
     audioElement.setAttribute("src", "audio/lunatic.mp3");
     document.getElementById("buttoncirno").style.backgroundImage = "url('images/cirnolunatic.gif')";
+    document.getElementById("victoryimage").src = "images/lunaticclear.gif";
     lunatic++;
     animateletterbutton0();
     animateletterbutton1();
