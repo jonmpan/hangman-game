@@ -1,5 +1,5 @@
 var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "⑨"];
-var touhous= ["CIRNO", "CIRNO", "CIRNO"];
+var touhous= ["CIRNO", "CIRNOCIRNO", "CIRNOCIRNOCIRNO"];
 var strongest = ["Who is Str⑨ng3sT Touhou in ALLov GEnS0ky0?!?! ?@  ?!?  !?!??!1!?", "Wh⑨'Da Sm4r73ST ToUOHOU??! So Sm4test @ m4TH!! Was wuz 1+4 aG1n?? ⑨???!!", "Who isDA BEST3ST T⑨uhu⑨?!?1 ⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨"];
 var victorymessage = ["I Knew3d3D u Wuz 2nd Str⑨ng3sT TO D3f34t my brains!!! ! ! ! !", "I Kn0wed U wwere 2nd Sm4r73ST ToUOHOU! So Sm4rtuR!! ⑨⑨⑨", "That's R1gh7! I'm da BEST T⑨uHu⑨ Around :D!! ⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨"];
 var gameovermessage = ["I R THE Str⑨ng3sT!! ME! CIRNO!! ! ! !!1!?", "SM4t3st at M4TH is I!! CIRNO!! 4+4 = ⑨ !!1!!", "CIRNO DA BEST! ⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨"];
@@ -170,7 +170,7 @@ $(document).ready(function() {
     document.getElementById('button-container').style.display = "none";
     // document.getElementsByClassName("letter-button").style.visibility = "visible";
 
-    var x = 10;
+    var x = 20;
     globalright = 0;
     lives = 2;
     word = "start";
