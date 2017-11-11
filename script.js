@@ -21,9 +21,9 @@ var lunaticsong = new Audio('audio/lunatic.mp3')
 
 $(document).ready(function() {
 
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-    document.getElementById('#songplayer').style.display = "block";
-}
+// if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+//     document.getElementById('#songplayer').style.display = "block";
+// }
 
   // function music() {
   //   audioElement.play();
