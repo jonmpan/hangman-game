@@ -9,10 +9,17 @@ var word = "start";
 var dastrongest = "strongest";
 var lives = 2;
 var lunatic = 0;
+var sndcorrect = new Audio('audio/TWINKLE3.wav');
+var sndwrong = new Audio('audio/ATTACK3.wav');
+var sndgameover = new Audio('audio/DEAD.wav');
+var sndezmode = new Audio('audio/BONUS2.wav')
+var sndlunatic = new Audio('audio/SPELLCARD.wav');
+var sndvictory = new Audio('audio/ORIN.wav');
+var sndlunaticvictory = new Audio('audio/MASTERSPARK.wav');
+var ezmodesong = new Audio('audio/ez2.mp3')
+var lunaticsong = new Audio('audio/lunatic.mp3')
 
 $(document).ready(function() {
-
-
 
   // function music() {
   //   audioElement.play();
@@ -86,6 +93,8 @@ $(document).ready(function() {
       if(document.getElementById('letter'+i).innerHTML === selectedletter){
         console.log(selectedletter);
         document.getElementById('letter'+i).style.visibility = "visible";
+        // sndcorrect.stop();
+        sndcorrect.play();
         correct++;
         globalright++;
       }
@@ -103,6 +112,7 @@ $(document).ready(function() {
         lives--;
         $('#lives').text("Lives : "+lives);
         $('#lives').text("Lives : "+lives);
+        sndwrong.play();
       }
 
       if(globalright == word.length && lunatic==0) {
@@ -111,6 +121,7 @@ $(document).ready(function() {
         document.getElementById('victory').style.display = "block";
         document.getElementById('button-container').style.display = "block";
         document.getElementById('animate').style.display = "block";
+        sndvictory.play();
       }
       
       if(lives == 0 && lunatic==0) {
@@ -119,6 +130,7 @@ $(document).ready(function() {
         document.getElementById('gameover').style.display = "block";
         document.getElementById('button-container').style.display = "block";
         document.getElementById('animate').style.display = "none";
+        sndgameover.play();
       }
 
       if(globalright == word.length && lunatic==1) {
@@ -128,6 +140,8 @@ $(document).ready(function() {
         document.getElementById('button-container').style.display = "block";
         document.getElementById('animate').style.display = "block";
         document.getElementById('restart').style.display = "none";
+        $('#victorymessagehtml').text("U R Lunatic!! "+victorymessage[random]);
+        sndlunaticvictory.play();
 
       }
       
@@ -138,6 +152,7 @@ $(document).ready(function() {
         document.getElementById('button-container').style.display = "block";
         document.getElementById('animate').style.display = "block";
         document.getElementById('restart').src = "none";
+        sndgameover.play();
       }
 
       if(selectedletter === "⑨" && lunatic==1){
@@ -149,6 +164,7 @@ $(document).ready(function() {
         document.getElementById('animate').style.display = "block";
         document.getElementById('restart').style.display = "none";
         $('#victorymessagehtml').text("U R Lunatic!! "+victorymessage[random]);
+        sndlunaticvictory.play();
       }
     }
 
@@ -159,10 +175,12 @@ $(document).ready(function() {
 //Clear Button
 
   $("#restart").on("click", function() {
+    sndezmode.play();
     restart()
   });
 
   function restart(){
+
     $("#wrongguesses").empty();
     document.getElementById('startingpage').style.display = "block";
     document.getElementById('gamepagenormal').style.display = "none";
@@ -196,40 +214,44 @@ $(document).ready(function() {
   
   $("#animate").on("click", function() {
     if (lunatic==0) {
-    var audioElement = document.getElementById("songplayer");
-    audioElement.setAttribute("src", "audio/lunatic.mp3");
-    document.getElementById("buttoncirno").style.backgroundImage = "url('images/cirnolunatic.gif')";
-    document.getElementById("victoryimage").src = "images/lunaticclear.gif";
-    lunatic++;
-    animateletterbutton0();
-    animateletterbutton1();
-    animateletterbutton2();
-    animateletterbutton3();
-    animateletterbutton4();
-    animateletterbutton5();
-    animateletterbutton6();
-    animateletterbutton7();
-    animateletterbutton8();
-    animateletterbutton9();
-    animateletterbutton10();
-    animateletterbutton11();
-    animateletterbutton12();
-    animateletterbutton13();
-    animateletterbutton14();
-    animateletterbutton15();
-    animateletterbutton16();
-    animateletterbutton17();
-    animateletterbutton18();
-    animateletterbutton19();
-    animateletterbutton20();
-    animateletterbutton21();
-    animateletterbutton22();
-    animateletterbutton23();
-    animateletterbutton24();
-    animateletterbutton25();
-    animateletterbutton26();
+      var audioElement = document.getElementById("songplayer");
+      audioElement.setAttribute("src", "audio/lunatic.mp3");
+      sndlunatic.play();
+      document.getElementById("buttoncirno").style.backgroundImage = "url('images/cirnolunatic.gif')";
+      document.getElementById("victoryimage").src = "images/lunaticclear.gif";
+      lunatic++;
+      animateletterbutton0();
+      animateletterbutton1();
+      animateletterbutton2();
+      animateletterbutton3();
+      animateletterbutton4();
+      animateletterbutton5();
+      animateletterbutton6();
+      animateletterbutton7();
+      animateletterbutton8();
+      animateletterbutton9();
+      animateletterbutton10();
+      animateletterbutton11();
+      animateletterbutton12();
+      animateletterbutton13();
+      animateletterbutton14();
+      animateletterbutton15();
+      animateletterbutton16();
+      animateletterbutton17();
+      animateletterbutton18();
+      animateletterbutton19();
+      animateletterbutton20();
+      animateletterbutton21();
+      animateletterbutton22();
+      animateletterbutton23();
+      animateletterbutton24();
+      animateletterbutton25();
+      animateletterbutton26();
     }
-    restart();
+    else {
+      sndlunatic.play();
+    }
+      restart();
     });
 
 

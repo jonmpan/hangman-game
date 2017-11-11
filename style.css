@@ -1,6 +1,12 @@
 
 audio{
-/*	display: none;*/
+	display: none;
+}
+
+@media (max-width: 900px) {
+	audio{
+		display: block;
+	}
 }
 
 #gamepagenormal{
