@@ -11,6 +11,8 @@
 	<script type="text/javascript" src="script.js"></script>
 </head>
 
+<audio controls loop id="songplayer" src="audio/ez2.mp3" autoplay></audio>
+
 <body>
 	<div class="container">
 		
@@ -26,7 +28,7 @@
 		<div id="gamepagenormal">
 			<h2 id="whois">Who is Strongest Touhou??!</h2>
 			
-			<div class="buttoncirno">
+			<div id="buttoncirno">
 				<div id="buttons"></div>
 			</div>
 			
@@ -75,21 +77,40 @@
 				</div>
 
 			</div>
-
-			<div class="victory">
-				<button id="restart">Restart</button>
-				<div id="animate" class="a">Lunatic!</div>
+		</div>
+	</div>
+	
+	<div class="container" id="victory">
+		<h2 id="victorymessagehtml"></h2>
+		
+		<div class="container">
+			<div class="row">
+				<img src="images/victorycirno.gif">
 			</div>
-
 		</div>
+	</div>
 
-		<div class="victory">
+
+
+	<div class="container" id="gameover">
+		<h2 id="gameovermessagehtml"></h2>
+		
+		<div class="container">
+			<div class="row">
+				<img src="images/gameovercirno.gif">
+			</div>
 		</div>
-
-		<div class="gameover">
+	</div>
+	
+	<div class="container">
+		<div class="row" id="button-container">
+			<div class="col-md-2">
+				<button id="restart"><strong>EZ Mode</strong></button>
+			</div>
+			<div class="col-md-2">
+				<button id="animate" class="a"><strong>⑨</strong></button>
+			</div>
 		</div>
-
-
 	</div>
 
 </body>

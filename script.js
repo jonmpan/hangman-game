@@ -1,13 +1,28 @@
-var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "⑨"];
 var touhous= ["CIRNO", "CIRNO", "CIRNO"];
 var strongest = ["Who is Str⑨ng3sT Touhou in ALLov GEnS0ky0?!?! ?@  ?!?  !?!??!1!?", "Wh⑨'Da Sm4r73ST ToUOHOU??! So Sm4test @ m4TH!! Was wuz 1+4 aG1n?? ⑨???!!", "Who isDA BEST3ST T⑨uhu⑨?!?1 ⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨"];
+var victorymessage = ["I Knew3d3D u Wuz 2nd Str⑨ng3sT TO D3f34t my brains!!! ! ! ! !", "I Kn0wed U wwere 2nd Sm4r73ST ToUOHOU! So Sm4rtuR!! ⑨⑨⑨", "That's R1gh7! I'm da BEST T⑨uHu⑨ Around :D!! ⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨"];
+var gameovermessage = ["I R THE Str⑨ng3sT!! ME! CIRNO!! ! ! !!1!?", "SM4t3st at M4TH is I!! CIRNO!! 4+4 = ⑨ !!1!!", "CIRNO DA BEST! ⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨⑨"];
 var numletters = 0;
 var globalright = 0;
 var word = "start";
 var dastrongest = "strongest";
 var lives = 2;
+var lunatic = 0;
 
 $(document).ready(function() {
+
+
+
+  // function music() {
+  //   audioElement.play();
+  // };
+
+  // music();
+
+  // $(".pause-button").on("click", function() {
+  //   audioElement.pause();
+  // });
 
 //Button Creation
   function makebuttons() {
@@ -33,6 +48,8 @@ $(document).ready(function() {
     $('#lives').text("Lives : "+lives);
     document.getElementById('startingpage').style.display = "none";
     document.getElementById('gamepagenormal').style.display = "block";
+    $('#victorymessagehtml').text(victorymessage[random]);
+    $('#gameovermessagehtml').text(gameovermessage[random]);
 
     var x = word.length;
     var y = x-1;    
@@ -65,7 +82,7 @@ $(document).ready(function() {
     target.style.visibility = "hidden";
 
     for (var i = 1; i < word.length+1; i++) {
-      
+
       if(document.getElementById('letter'+i).innerHTML === selectedletter){
         console.log(selectedletter);
         document.getElementById('letter'+i).style.visibility = "visible";
@@ -88,12 +105,49 @@ $(document).ready(function() {
         $('#lives').text("Lives : "+lives);
       }
 
-      if(globalright == word.length) {
+      if(globalright == word.length && lunatic==0) {
         console.log("victory");
+        document.getElementById('gamepagenormal').style.display = "none";
+        document.getElementById('victory').style.display = "block";
+        document.getElementById('button-container').style.display = "block";
+        document.getElementById('animate').style.display = "block";
       }
       
-      if(lives == 0) {
+      if(lives == 0 && lunatic==0) {
         console.log("gameover");
+        document.getElementById('gamepagenormal').style.display = "none";
+        document.getElementById('gameover').style.display = "block";
+        document.getElementById('button-container').style.display = "block";
+        document.getElementById('animate').style.display = "none";
+      }
+
+      if(globalright == word.length && lunatic==1) {
+        console.log("victory");
+        document.getElementById('gamepagenormal').style.display = "none";
+        document.getElementById('victory').style.display = "block";
+        document.getElementById('button-container').style.display = "block";
+        document.getElementById('animate').style.display = "block";
+        document.getElementById('restart').style.display = "none";
+      }
+      
+      if(lives == 0 && lunatic==1) {
+        console.log("gameover");
+        document.getElementById('gamepagenormal').style.display = "none";
+        document.getElementById('gameover').style.display = "block";
+        document.getElementById('button-container').style.display = "block";
+        document.getElementById('animate').style.display = "block";
+        document.getElementById('restart').style.display = "none";
+      }
+
+      if(selectedletter === "⑨" && lunatic==1){
+        console.log("victory");
+        document.getElementById('gamepagenormal').style.display = "none";
+        document.getElementById('gameover').style.display = "none";
+        document.getElementById('victory').style.display = "block";
+        document.getElementById('button-container').style.display = "block";
+        document.getElementById('animate').style.display = "block";
+        document.getElementById('restart').style.display = "none";
+        $('#victorymessagehtml').text("U R Lunatic!! "+victorymessage[random]);
       }
     }
 
@@ -104,10 +158,17 @@ $(document).ready(function() {
 //Clear Button
 
   $("#restart").on("click", function() {
+    restart()
+  });
 
+  function restart(){
     $("#wrongguesses").empty();
     document.getElementById('startingpage').style.display = "block";
     document.getElementById('gamepagenormal').style.display = "none";
+    document.getElementById('victory').style.display = "none";
+    document.getElementById('gameover').style.display = "none";
+    document.getElementById('button-container').style.display = "none";
+    // document.getElementsByClassName("letter-button").style.visibility = "visible";
 
     var x = 10;
     globalright = 0;
@@ -125,15 +186,19 @@ $(document).ready(function() {
     }
 
     gamestart();
-  });
+  };
+  
 
 //End Clear Button
 
 //Animate Button
   
   $("#animate").on("click", function() {
-    // animateDiv();
-    // animateDiv1();
+    if (lunatic==0) {
+    var audioElement = document.getElementById("songplayer");
+    audioElement.setAttribute("src", "audio/lunatic.mp3");
+    document.getElementById("buttoncirno").style.backgroundImage = "url('images/cirnolunatic.gif')";
+    lunatic++;
     animateletterbutton0();
     animateletterbutton1();
     animateletterbutton2();
@@ -159,8 +224,13 @@ $(document).ready(function() {
     animateletterbutton22();
     animateletterbutton23();
     animateletterbutton24();
-    animateletterbutton25();    
+    animateletterbutton25();
+    animateletterbutton26();
+    }
+    restart();
     });
+
+
 
   function makeNewPosition($flybox) {
 
@@ -172,32 +242,6 @@ $(document).ready(function() {
       var nw = Math.floor(Math.random() * w);
       return [nh, nw];
   }
-
-  // function animateDiv() {
-  //     var $target = $('.a');
-  //     var newq = makeNewPosition($target.parent());
-  //     var oldq = $target.offset();
-  //     var speed = calcSpeed([oldq.top, oldq.left], newq);
-  //     $('.a').animate({
-  //         top: newq[0],
-  //         left: newq[1]
-  //     }, speed, function() {
-  //         animateDiv();
-  //     });
-  // };
-
-  // function animateDiv1() {
-  //     var $target = $('.a1');
-  //     var newq = makeNewPosition($target.parent());
-  //     var oldq = $target.offset();
-  //     var speed = calcSpeed([oldq.top, oldq.left], newq);
-  //     $('.a1').animate({
-  //         top: newq[0],
-  //         left: newq[1]
-  //     }, speed, function() {
-  //         animateDiv1();
-  //     });
-  // };
 
   function animateletterbutton0() {
       var $target = $('.fly0');
@@ -537,6 +581,19 @@ $(document).ready(function() {
       });
   };
 
+  function animateletterbutton26() {
+      var $target = $('.fly26');
+      var newq = makeNewPosition($target.parent());
+      var oldq = $target.offset();
+      var speed = calcSpeed([oldq.top, oldq.left], newq);
+      $('.fly26').animate({
+          top: newq[0],
+          left: newq[1]
+      }, speed, function() {
+          animateletterbutton26();
+      });
+  };
+
   function calcSpeed(prev, next) {
 
       var x = Math.abs(prev[1] - next[1]);
@@ -546,5 +603,7 @@ $(document).ready(function() {
       var speed = Math.ceil(greatest / speedModifier);
       return speed;
   }
+
+
 
 });
