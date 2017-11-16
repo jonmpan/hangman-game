@@ -12,15 +12,16 @@ var lunatic = 0;
 var sndcorrect = new Audio('audio/TWINKLE3.wav');
 var sndwrong = new Audio('audio/ATTACK3.wav');
 var sndgameover = new Audio('audio/DEAD.wav');
-var sndezmode = new Audio('audio/BONUS2.wav')
+var sndezmode = new Audio('audio/BONUS2.wav');
 var sndlunatic = new Audio('audio/SPELLCARD.wav');
 var sndvictory = new Audio('audio/ORIN.wav');
 var sndlunaticvictory = new Audio('audio/MASTERSPARK.wav');
-var ezmodesong = new Audio('audio/ez2.mp3')
+var ezmodesong = new Audio('audio/ez2.mp3');
 var lunaticsong = new Audio('audio/lunatic.mp3')
 
 $(document).ready(function() {
 
+$("#wholepage").get("index2.html");
 // if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
 //     document.getElementById('#songplayer').style.display = "block";
 // }
